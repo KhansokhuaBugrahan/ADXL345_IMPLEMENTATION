@@ -38,13 +38,13 @@ To handle this issue, we need to give slave a chance to express itself, so we ne
 adequate pulses for slave to communicate with master.Then we read the real data.
 
 
-*/
+
 
 The device supports 13 bit and 10 bit resolution, 13 bit(full resoluiton) is auto-scaled but 10-bit needs to be multiplied by 4
 Gravity downward is accepted as positive output, When we obtain avarage 256 LSB and multiply it with 3.9 mg/LSB, full resolution 16g mode.
 Which is approximately 1g, it will indicate the acceleration acting on downward.
 Since we use HW NSS mode, multibyte read is a bit problematic.Because it cannot deassert CS properly.
-
+*/
 void writeRegisterDataAdxl345(uint8_t registerAddress, uint8_t data )
 {
 	SPI1_PERIPHERAL_ENABLE();
