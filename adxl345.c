@@ -26,7 +26,24 @@ uint8_t readRegisterDataAdxl345(uint8_t registerAddress )
 
 		return readBuffer;
 }
+/*
+	///////////////////DUMMY BYTE USAGE\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
+Now, I will tell what I understood from all of these process. Once I send a register 
+address, as soon as data received by slave, it responses back quickly. However, at this point clock pulse stopped 
+because after sending the address, master stops pulsing. So first received value will be invalid. 
+To handle this issue, we need to give slave a chance to express itself, so we need to generate clock pulse for it.
+ Then in the second sequence, when I send dummy byte, it sends  back to  proper data as response to previous
+ transmisson. Then after sending the dummy byte, we only do this to generate 
+adequate pulses for slave to communicate with master.Then we read the real data.
+
+
+*/
+
+The device supports 13 bit and 10 bit resolution, 13 bit(full resoluiton) is auto-scaled but 10-bit needs to be multiplied by 4
+Gravity downward is accepted as positive output, When we obtain avarage 256 LSB and multiply it with 3.9 mg/LSB, full resolution 16g mode.
+Which is approximately 1g, it will indicate the acceleration acting on downward.
+Since we use HW NSS mode, multibyte read is a bit problematic.Because it cannot deassert CS properly.
 
 void writeRegisterDataAdxl345(uint8_t registerAddress, uint8_t data )
 {
@@ -36,27 +53,7 @@ void writeRegisterDataAdxl345(uint8_t registerAddress, uint8_t data )
 	SPI1_PERIPHERAL_DISABLE();
 }
 
-//int16_t readAxisDataAdxl345(uint8_t baseRegister)
-//{
-//    uint8_t dataBuffer[2] = {0};
-//
-//    baseRegister |= 0xC0; // Read mode + Multi-byte mode
-//
-//    spixSendDataByte(SPI1, &baseRegister, 1); // Send register address
-//    (void)SPI1->SPI_DR; // Clear garbage data
-//
-//    uint8_t dummyByte = 0xFF;
-//    spixSendDataByte(SPI1, &dummyByte, 1); // Send dummy byte to generate clock
-//    spixReceiveDataByte(SPI1, &dataBuffer[0], 1); // Read LSB (low byte)
-//
-//    spixSendDataByte(SPI1, &dummyByte, 1); // Send another dummy byte
-//    spixReceiveDataByte(SPI1, &dataBuffer[1], 1); // Read MSB (high byte)
-//
-//    int16_t returnValue = dataBuffer[0];
-//    returnValue |= (dataBuffer[1] << 8);
-//
-//    return returnValue; // Combine LSB + MSB
-//}
+ 
 int16_t readAxisDataAdxl345(ADXL345_AxisData_e axisBaseAddress)
 {
 	SPI1_PERIPHERAL_ENABLE();
@@ -87,10 +84,4 @@ int16_t readAxisDataAdxl345(ADXL345_AxisData_e axisBaseAddress)
     return returnValue; // Return combined result
 }
 
-//void writeRegisterDataAdxl345_2(uint8_t registerAddress, const uint8_t* dataBuffer )
-//{
-//	//registerAddress &= ~0xC0; // 1100 0000        0011 1111
-//	spixSendDataByte(SPI1, &registerAddress , 1);
-//	spixSendDataByte(SPI1, dataBuffer , 1);
-//
-//}
+ 
