@@ -3,8 +3,11 @@
 Warning: There is no guarantee that each of the information in this repository is correct.                              
 I do not take any responsibility for misusage or being referenced in case of bad results.                  
 To avoid such issues, please make safety controls and make reliability tests.                      
-Hope find you beneficial, have a nice day.                     
+Hope find you beneficial, have a nice day.    
 
+
+Board: STM32F407G-DISC1            
+IDE: STMCubdeIDE                                  
 Reference: ADXL345-Datasheet
 https://www.analog.com/media/en/technical-documentation/data-sheets/adxl345.pdf
 
