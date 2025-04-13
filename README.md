@@ -22,4 +22,4 @@ and adxl345's hardware relaiblity(if it is damaged, malfunction).
 
 You can find information about SPI configuration and working principle in adxl345.c file.
 
-[Download and watch the video](https://drive.google.com/drive/u/2/my-drive)
+
