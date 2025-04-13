@@ -1,4 +1,4 @@
-# ADXL345_IMPLEMENTATION
+# ADXL345_IMPLEMENTATION-via-SPI
 
 Warning: There is no guarantee that each of the information in this file is correct.                              
 I do not take any responsibility for misusage or being referenced in case of bad results.                  
