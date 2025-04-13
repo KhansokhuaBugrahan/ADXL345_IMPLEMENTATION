@@ -5,7 +5,8 @@ I do not take any responsibility for misusage or being referenced in case of bad
 To avoid such issues, please make safety controls and make reliability tests.                      
 Hope find you beneficial, have a nice day.                     
 
-
+Reference: ADXL345-Datasheet
+https://www.analog.com/media/en/technical-documentation/data-sheets/adxl345.pdf
 
 In the maindebug.c file, you can  read comment lines for having better understanding.                    
 You can see some test codes here.                 
