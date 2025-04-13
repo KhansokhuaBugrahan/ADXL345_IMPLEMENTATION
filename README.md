@@ -21,5 +21,32 @@ Also, you can find orientation test file and communication test file to test you
 and adxl345's hardware relaiblity(if it is damaged, malfunction).          
 
 You can find information about SPI configuration and working principle in adxl345.c file.
-
+                                                              
+                                                              
+                                                                                    
+                                                                            
+Before setting up lockout mechanism, I am quite cautious about not triggering the interrupt multiple times.                                        
+Click the icon to redirect YouTube and watch the test-1 video.                                           
 [![Custom Thumbnail](https://github.com/KhansokhuaBugrahan/ADXL345_IMPLEMENTATION-via-SPI/blob/main/gif.gif)](https://www.youtube.com/watch?v=JeKnpv8_L8A)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+After setting up lockout mechanism, I feel comfortable, lockout time 1 second here.                                                      
+See that first lapse time between two interrupt is below lockout time(1000ms).                                                                           
+Click the icon to redirect YouTube and watch the test-2 video.                                                           
+[![Custom Thumbnail](https://github.com/KhansokhuaBugrahan/ADXL345_IMPLEMENTATION-via-SPI/blob/main/gif.gif)](https://www.youtube.com/watch?v=XMO4NOZyLm0)
+
+As you can see in the below, first period is  under the lockout time(1 second)                                                             
+but following periods are always higher than lockout time like 1.2 second                                         
+![ORANGE LED STATE](https://github.com/KhansokhuaBugrahan/ADXL345_IMPLEMENTATION-via-SPI/blob/main/orangeLED.png "Optional Tooltip")
