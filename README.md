@@ -18,7 +18,7 @@ main.c file includes simplified codes, you can run it directly. I recommed to fo
 you can take a look at the corresponding line in the maindebug.c file, if you get stuck.                   
  
 Also, you can find orientation test file and communication test file to test your communication line             
-and adxl345's hardware relaiblity(if it is damaged, malfunction).          
+and adxl345's hardware reliability(if it is damaged, malfunction).          
 
 You can find information about SPI configuration and working principle in adxl345.c file.
                                                               
